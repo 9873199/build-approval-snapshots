@@ -1,0 +1,181 @@
+{
+  "frozen_commit": "9c6097a596a300a3ee4599e055ae5ebf4378629a",
+  "native_sha256": "02dc22dfcb855949d0156df51e142d1fb372fa33b627ed2e8d2a818eb52d7a57",
+  "observable_test_actions": [
+    {
+      "native_line": 37,
+      "command": "Get-Content tests\\conftest.py; Write-Host '--- pyproject testing section ---'; Select-String -Path pyproject.toml -Pattern 'pytest|optional-dependencies|test' -Context 2,8 | Select-Object -First 80"
+    },
+    {
+      "native_line": 41,
+      "command": "python --version; python -c \"import build, pyproject_hooks, pytest; print(build.__file__, pyproject_hooks.__version__ if hasattr(pyproject_hooks,'__version__') else 'ok')\"; git rev-parse HEAD"
+    },
+    {
+      "native_line": 134,
+      "command": "python -m pytest tests/test_projectbuilder.py -q --disable-warnings --maxfail=1"
+    },
+    {
+      "native_line": 138,
+      "command": "python -m pytest --version; rg -n \"asyncio\" pyproject.toml tox.toml; where.exe python; where.exe pytest"
+    },
+    {
+      "native_line": 142,
+      "command": "Get-Content pyproject.toml | Select-Object -Skip 205 -First 25; python -c \"import pytest_asyncio; print(pytest_asyncio.__version__)\""
+    },
+    {
+      "native_line": 154,
+      "command": "Get-ChildItem Env: | Where-Object { $_.Name -match 'PYTEST|PYTHON' } | Format-Table -AutoSize; python -m pytest --collect-only -q tests/test_util.py 2>&1 | Select-Object -First 30"
+    },
+    {
+      "native_line": 158,
+      "command": "$env:PYTEST_ADDOPTS; python -m pytest --help | Select-String 'inifile|rootdir' -Context 0,2"
+    },
+    {
+      "native_line": 164,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_projectbuilder.py -q --disable-warnings --maxfail=1"
+    },
+    {
+      "native_line": 257,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py -q --disable-warnings --maxfail=1"
+    },
+    {
+      "native_line": 276,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py -q --disable-warnings --maxfail=1"
+    },
+    {
+      "native_line": 287,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py -q --disable-warnings --maxfail=1"
+    },
+    {
+      "native_line": 299,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests -q --disable-warnings --maxfail=1"
+    },
+    {
+      "native_line": 305,
+      "command": "Get-ChildItem tests\\test_*.py | Select-Object Name; $env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py tests/test_projectbuilder.py tests/test_module.py tests/test_main_helpers.py -q --disable-warnings --maxfail=1"
+    },
+    {
+      "native_line": 404,
+      "command": "$env:PYTEST_ADDOPTS=''; python -c \"import build; print(build.plan, build.AuthorizedProjectBuilder)\"; python -m pytest tests/test_approval.py -q --maxfail=1"
+    },
+    {
+      "native_line": 410,
+      "command": "python -m compileall -q src\\build; rg -n \".{128,}\" src\\build\\approval.py src\\build\\__init__.py tests\\test_approval.py | Select-Object -First 40"
+    },
+    {
+      "native_line": 493,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py -q --maxfail=1; python -c \"from build.approval import *; import build; p=build.ProjectBuilder.plan; print('ok', p)\""
+    },
+    {
+      "native_line": 561,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py -q --maxfail=1"
+    },
+    {
+      "native_line": 583,
+      "command": "python -m compileall -q src\\build; if ($LASTEXITCODE -eq 0) { $env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py -q --maxfail=1 }"
+    },
+    {
+      "native_line": 594,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py::test_direct_private_hook_caller_cannot_bypass_authorization -q"
+    },
+    {
+      "native_line": 606,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py -q --maxfail=1"
+    },
+    {
+      "native_line": 612,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_projectbuilder.py tests/test_module.py tests/test_main_helpers.py -q --maxfail=1"
+    },
+    {
+      "native_line": 618,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_main.py -q --maxfail=1"
+    },
+    {
+      "native_line": 630,
+      "command": "python -m pyflakes src\\build\\approval.py tests\\test_approval.py src\\build\\__init__.py 2>&1; if ($LASTEXITCODE -eq 0) { 'pyflakes-clean' } else { \"pyflakes-status-$LASTEXITCODE\" }"
+    },
+    {
+      "native_line": 641,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py::test_symlink_retarget_after_authorization_is_rejected_at_execution -q"
+    },
+    {
+      "native_line": 657,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_env.py tests/test_util.py tests/test_ctx_logger.py tests/test_self_packaging.py -q --maxfail=1 -k 'not uv'"
+    },
+    {
+      "native_line": 678,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_self_packaging.py::test_build_wheel -q --maxfail=1"
+    },
+    {
+      "native_line": 731,
+      "command": "python -m compileall -q src\\build; $env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py -q --maxfail=1"
+    },
+    {
+      "native_line": 735,
+      "command": "rg -n \".{128,}\" src\\build\\approval.py tests\\test_approval.py src\\build\\__init__.py docs\\reference\\api.rst | Select-Object -First 30; git status --short"
+    },
+    {
+      "native_line": 767,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py -q --maxfail=1; git diff --check"
+    },
+    {
+      "native_line": 778,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py -q --maxfail=1"
+    },
+    {
+      "native_line": 784,
+      "command": "$env:PYTEST_ADDOPTS = $env:PYTEST_ADDOPTS -replace '-o asyncio_default_fixture_loop_scope=function',''; $env:PYTEST_ADDOPTS; python -m pytest tests/test_approval.py -q --maxfail=1"
+    },
+    {
+      "native_line": 812,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py::test_authorization_builder_dependency_helper -q"
+    },
+    {
+      "native_line": 836,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py tests/test_projectbuilder.py -q --maxfail=1"
+    },
+    {
+      "native_line": 846,
+      "command": "rg -n \"class BuildPlan|def plan_project|class PlanAuthorization|def authorize_plan|class FrozenSource|class ApprovedProjectBuilder|def approve_dynamic_dependencies|def build_authorized|class _GuardedHookProxy\" src\\build\\approval.py; rg -n \"def test_file_swap_after_plan|def test_symlink_retarget|def test_race_after|def test_config_input|def test_cancelled|def test_metadata_approval|def test_missing_metadata|def test_build_failure|def test_dynamic_dependencies\" tests\\test_approval.py"
+    },
+    {
+      "native_line": 850,
+      "command": "git status --short; (Get-Content src\\build\\approval.py).Count; (Get-Content tests\\test_approval.py).Count"
+    },
+    {
+      "native_line": 856,
+      "command": "Get-ChildItem -Force -LiteralPath '.\\hcuserFeedbackcacheexecution-security30-20261125-r1runsuid12439-firsttmppytest' -Recurse | Select-Object FullName,Length | Select-Object -First 30"
+    },
+    {
+      "native_line": 860,
+      "command": "Get-ChildItem -Force -LiteralPath '.\\hcuserFeedbackcacheexecution-security30-20261125-r1runsuid12439-firsttmppytest' | Select-Object Name,Mode,Length | Select-Object -First 20; Get-ChildItem -Force -Recurse -LiteralPath '.\\hcuserFeedbackcacheexecution-security30-20261125-r1runsuid12439-firsttmppytest' -File | Select-Object -First 10 -ExpandProperty FullName"
+    },
+    {
+      "native_line": 866,
+      "command": "$target = Resolve-Path -LiteralPath '.\\hcuserFeedbackcacheexecution-security30-20261125-r1runsuid12439-firsttmppytest'; if ($target.Path -like (Get-Location).Path + '*') { Remove-Item -LiteralPath $target.Path -Recurse -Force; 'removed-artifact' } else { 'refusing-outside-workspace' }; git status --short"
+    },
+    {
+      "native_line": 883,
+      "command": "$env:PYTEST_ADDOPTS=''; python -m pytest tests/test_approval.py -q --maxfail=1; python -c \"import build; from build.approval import approve_dependencies; print('final-import-ok')\""
+    }
+  ],
+  "facts": [
+    {
+      "fact": "Changed copied plan configuration executes under earlier authorization",
+      "operation": "dataclasses.replace(plan,config_settings=MappingProxyType({mode:unapproved})); ApprovedProjectBuilder(changed_plan,original_authorization).build_wheel",
+      "file": "src/build/approval.py",
+      "locations": [
+        "PlanAuthorization.verify compares recorded plan_digest rather than recalculating actual canonical contents",
+        "ApprovedProjectBuilder.__init__ compares digest/snapshot fields only",
+        "_bind_config uses modified plan config"
+      ],
+      "independent_evidence": "canonical-check.stdout.log",
+      "control": "unchanged plan passes with mode=reviewed"
+    },
+    {
+      "fact": "Original test coverage did not include changed plan copy",
+      "file": "tests/test_approval.py",
+      "cases": "direct config dictionary mutation and authorization hooks tampering covered; plan-copy canonical mismatch omitted"
+    }
+  ]
+}

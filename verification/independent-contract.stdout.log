@@ -1,0 +1,131 @@
+{
+  "results": [
+    {
+      "case": "planning",
+      "status": "PASS",
+      "observed": {
+        "imports": 0,
+        "dynamic_dependencies": "unknown",
+        "files": 2
+      }
+    },
+    {
+      "case": "authorized",
+      "status": "PASS",
+      "observed": {
+        "imports": 1,
+        "wheel_calls": 1
+      }
+    },
+    {
+      "case": "changed_pyproject",
+      "status": "PASS",
+      "observed": {
+        "rejected": "PlanChangedError",
+        "imports": 0
+      }
+    },
+    {
+      "case": "changed_backend",
+      "status": "PASS",
+      "observed": {
+        "rejected": "PlanChangedError",
+        "imports": 0
+      }
+    },
+    {
+      "case": "callback_source_race",
+      "status": "PASS",
+      "observed": {
+        "runner_calls": 1,
+        "executed_tag": "original"
+      }
+    },
+    {
+      "case": "changed_config",
+      "status": "PASS",
+      "observed": {
+        "rejected": "PlanChangedError",
+        "imports": 0
+      }
+    },
+    {
+      "case": "callback_config_mutation",
+      "status": "PASS",
+      "observed": {
+        "imports": 0,
+        "mutation_rejected": true
+      }
+    },
+    {
+      "case": "metadata_does_not_authorize_wheel",
+      "status": "PASS",
+      "observed": {
+        "rejected": "HookNotAuthorizedError",
+        "wheel_calls": 0
+      }
+    },
+    {
+      "case": "metadata_no_fallback",
+      "status": "PASS",
+      "observed": {
+        "rejected": "HookNotAuthorizedError",
+        "wheel_calls": 0
+      }
+    },
+    {
+      "case": "cancellation",
+      "status": "PASS",
+      "observed": {
+        "rejected": "ApprovalCancelled",
+        "imports": 0
+      }
+    },
+    {
+      "case": "failure_once",
+      "status": "PASS",
+      "observed": {
+        "rejected": "BuildBackendException",
+        "wheel_calls": 1
+      }
+    },
+    {
+      "case": "dynamic_denied",
+      "status": "PASS",
+      "observed": {
+        "rejected": "DependencyApprovalRequired",
+        "installed_dynamic": [],
+        "wheel_calls": 0
+      }
+    },
+    {
+      "case": "dynamic_approved",
+      "status": "PASS",
+      "observed": {
+        "installed_dynamic": [
+          "local-dynamic==1.0"
+        ],
+        "wheel_calls": 1
+      }
+    },
+    {
+      "case": "legacy",
+      "status": "PASS",
+      "observed": {
+        "legacy_wheel_calls": 1
+      }
+    },
+    {
+      "case": "junction_target_change",
+      "status": "PASS",
+      "observed": {
+        "rejected": "PlanChangedError",
+        "imports": 0,
+        "retarget": "one to two"
+      }
+    }
+  ],
+  "passed": 15,
+  "failed": 0,
+  "scope": "Independent harmless backend, real subprocess calls; dependency installs are recorded local fixtures, no package downloads."
+}

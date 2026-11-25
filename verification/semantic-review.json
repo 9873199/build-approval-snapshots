@@ -1,0 +1,12 @@
+{
+  "uid": 12439,
+  "score": 3,
+  "feedback": "规划阶段没有导入后端，换源码、取消操作和动态依赖审批也都能拦住。问题出在计划与授权的绑定：把已审计划复制一份，只改 config_settings，旧授权仍让后端按新配置执行。验证只比较保存的摘要，没有重新核对实际计划内容。新增测试检查了直接修改配置和篡改授权，却没覆盖这种计划副本，所以“授权绑定整个计划”还没做完整。",
+  "reviewer": "Codex (AI-assisted)",
+  "product_unchanged": true,
+  "model_test_replay": "129 passed,1 skipped",
+  "independent_original_contract": "15 passed",
+  "additional_canonical_binding_probe": "1 changed-plan failure with1 unchanged-plan positive control",
+  "limitation": "Public dataclasses.replace is used to copy a plan with changed configuration; no claim of arbitrary remote compromise.",
+  "automatic_submission": false
+}

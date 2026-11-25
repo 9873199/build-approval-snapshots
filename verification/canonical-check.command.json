@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "D:\\hc\\userFeedback\\cache\\execution-security30-20261125-r1\\runtime-tasks\\build-approval\\env\\Scripts\\python.exe",
+    "-B",
+    "D:\\hc\\userFeedback\\cache\\execution-security30-20261125-r1\\evaluation\\uid12439-r1\\build_canonical_check.py"
+  ],
+  "cwd": "D:\\hc\\userFeedback\\cache\\execution-security30-20261125-r1\\evaluation\\uid12439-r1",
+  "exit_code": 0,
+  "PYTHONPATH": "D:\\hc\\userFeedback\\cache\\execution-security30-20261125-r1\\evaluation\\uid12439-r1\\replay-source\\src"
+}

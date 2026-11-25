@@ -1,0 +1,45 @@
+{
+  "scope": "public dataclasses.replace creates changed canonical config while retaining prior digest; no private object mutation or source patch",
+  "results": [
+    {
+      "case": "changed_plan_copy",
+      "status": "FAIL",
+      "executed": true,
+      "error": null,
+      "backend_events": [
+        {
+          "event": "import",
+          "tag": "original"
+        },
+        {
+          "event": "wheel",
+          "tag": "original"
+        },
+        {
+          "event": "config={'mode': 'unapproved'}",
+          "tag": "original"
+        }
+      ]
+    },
+    {
+      "case": "unchanged_plan_control",
+      "status": "PASS",
+      "executed": true,
+      "error": null,
+      "backend_events": [
+        {
+          "event": "import",
+          "tag": "original"
+        },
+        {
+          "event": "wheel",
+          "tag": "original"
+        },
+        {
+          "event": "config={'mode': 'reviewed'}",
+          "tag": "original"
+        }
+      ]
+    }
+  ]
+}

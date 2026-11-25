@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "D:\hc\userFeedback\cache\execution-security30-20261125-r1\runtime-tasks\build-approval\env\Lib\site-packages\pyproject_hooks\_in_process\_in_process.py", line 406, in <module>
+    main()
+    ~~~~^^
+  File "D:\hc\userFeedback\cache\execution-security30-20261125-r1\runtime-tasks\build-approval\env\Lib\site-packages\pyproject_hooks\_in_process\_in_process.py", line 381, in main
+    json_out["return_val"] = hook(**hook_input["kwargs"])
+                             ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\hc\userFeedback\cache\execution-security30-20261125-r1\runtime-tasks\build-approval\env\Lib\site-packages\pyproject_hooks\_in_process\_in_process.py", line 286, in build_wheel
+    return _build_backend().build_wheel(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        wheel_directory, config_settings, metadata_directory
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\hc\userFeedback\cache\execution-security30-20261125-r1\evaluation\uid12439-r1\tmp\build-approval-freeze-doljk6j3\backend\probe_backend.py", line 11, in build_wheel
+    if config_settings and config_settings.get("fail")=="yes": raise RuntimeError("synthetic backend failure")
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: synthetic backend failure
