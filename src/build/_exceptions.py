@@ -42,6 +42,34 @@ class BuildSystemTableValidationError(BuildException):
         return f'Failed to validate `build-system` in pyproject.toml: {self.args[0]}'
 
 
+class ApprovalError(BuildException):
+    """Base class for plan, authorization, and explicit-approval failures."""
+
+
+class PlanValidationError(ApprovalError, BuildSystemTableValidationError):
+    """Raised when a static build plan cannot be constructed safely."""
+
+
+class AuthorizationError(ApprovalError):
+    """Raised when an execution is not covered by a valid authorization."""
+
+
+class PlanChangedError(AuthorizationError):
+    """Raised when a planned source or configuration no longer matches its grant."""
+
+
+class HookNotAuthorizedError(AuthorizationError):
+    """Raised when a backend hook is invoked without explicit approval."""
+
+
+class DependencyApprovalRequired(AuthorizationError):
+    """Raised when dynamically resolved dependencies have not been approved."""
+
+
+class ApprovalCancelled(ApprovalError):
+    """Raised before an approved hook starts because execution was cancelled."""
+
+
 class FailedProcessError(Exception):
     """
     Exception raised when a setup or preparation operation fails.
